@@ -23,5 +23,19 @@
         function obterSaldo(){
             return $this -> saldo;
         }
+
+        function __construct($agencia, $codigo, $dataDeCriacao, $titular, $senha, $saldo){
+            $this -> agencia = $agencia;
+            $this -> codigo = $codigo;
+            $this -> dataDeCriacao = $dataDeCriacao;
+            $this -> titular = $titular;
+            $this -> senha = $senha;
+            $this -> depositar($saldo);
+            $this -> cancelada = false;
+        }
+    
+        function __destruct(){
+            echo "<br> Objeto Conta {$this -> codigo} de {$this -> titular ->  nome} finalizada... <br>";
+        }
     }
 ?>
