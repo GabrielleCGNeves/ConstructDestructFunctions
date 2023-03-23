@@ -1,8 +1,8 @@
 <?php
-    include_once 'Pessoa.php';
-    include_once 'Conta.php';
+    include_once 'AbstractsClasses/Pessoa.php';
+    include_once 'AbstractsClasses/Conta.php';
 
-    $eduardo = new Pessoa();
+    $eduardo = new Pessoa($codigo, $nome, $altura, $idade, $nascimento, $escolaridade, $salario);
     $eduardo -> codigo = 10;
     $eduardo -> nome = "Eduardo Soares";
     $eduardo -> altura = 1.72;
