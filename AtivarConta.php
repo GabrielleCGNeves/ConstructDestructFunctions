@@ -1,22 +1,26 @@
-<?php
-    include_once 'Conta.php';
+<?php 
+    class ContaCorrente extends Conta{
+    var $limite;
 
-    $conta_eduardo = new Conta;
-    $conta_eduardo -> Agencia = 1234;
-    $conta_eduardo -> Codigo = "CC.1234.9";
-    $conta_eduardo -> DataDeCriacao = '10.07.02';
-    $conta_eduardo -> Titular = $eduardo;
-    $conta_eduardo -> Senha = 2401;
-    $conta_eduardo -> Saldo = 567.69;
-    $conta_eduardo -> Cancelado = false;
+    function __construct($agencia, $codigo, $dataDeInscricao, $titular, $senha, $saldo, $cancelada,$limite)
+    {
+    parent:: __construct($agencia, $codigo, $dataDeInscricao, $titular, $senha, $saldo, $cancelada,$limite);
+    $this -> limite = $limite;   
+    }
 
-    echo "\n";
-    echo "Manipulando a conta de: {$conta_carlos->Titular->Nome} \n";
-    echo "O saldo atual é R$ {$conta_carlos->ObterSaldo()} \n";
+    function Retirar($quantia){
+        $cpmf = 0.05;
 
-    $conta_carlos->Depositar(20);
-    echo "O saldo atual é R$ {$conta_carlos->Obter_saldo()} \n";
+        if (($this ->saldo + $this -> limite) >= $quantia){
+            parent:: retirar($quantia);
+            parent:: retirar($quantia * $cpmf);
+        }
+        else {
+            echo "<br>Retirada não permitida ...";
+            return false;
+        }
+        return true;
+    }
+}
 
-    $conta_carlos->Retirar(10);
-    echo "O saldo atual R$ {$conta_carlos->ObterSaldo()} \n";
 ?>
