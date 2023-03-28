@@ -8,8 +8,8 @@
         var $escolaridade;
         var $salario;
 
-        function crescer($centimetros) {
-            if ($centimetros > 0) {
+        function crescer($centimetros){
+            if ($centimetros > 0){
                 $this ->altura += $centimetros;
             }
         }
