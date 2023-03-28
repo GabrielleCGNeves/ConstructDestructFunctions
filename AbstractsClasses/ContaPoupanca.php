@@ -1,4 +1,7 @@
 <?php
+
+    require 'Conta.php';
+
     class ContaPoupanca extends Conta{
         var $aniversario;
 
