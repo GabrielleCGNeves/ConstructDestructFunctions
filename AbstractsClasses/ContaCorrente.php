@@ -1,4 +1,7 @@
 <?php 
+
+    require 'Conta.php';
+
     class ContaCorrente extends Conta{
         var $limite;
 
